@@ -2,7 +2,7 @@
 0- obter um usuario
 1-Preciso obter o numero de telefone de um usuario apartir de seu id
 2- obter endereço do usuario pelo id
-*/
+*///Teste
 //Importamos o modulo interno do node.js
 const util = require('util')
 //Converter callback para promisse
