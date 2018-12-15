@@ -1,6 +1,7 @@
 const{
     //ler os arquivos
-    readFile
+    readFile,
+    writeFile
 } = require('fs')
 
 const {
@@ -9,6 +10,7 @@ const {
 } = require('util')
 
 const readFileAsync = promisify(readFile)
+const writeFileAsync = promisify(writeFile) // converter para promisse para n ter q usar callback
 
 //outra forma de obter dados do jason
 // const dadosJson = require('./herois.json')
@@ -24,8 +26,31 @@ class Database{
         return JSON.parse(arquivo.toString())
     }
 
-    escreverArquivo(){
+    //vai receber informações e escrever no arquivo
+    async escreverArquivo(){
 
+        await writeFileAsync(this.NOME_ARQUIVO, JSON.stringify(dados))
+        return true;
+
+    }
+
+    async cadastrar(heroi){
+        const dados = await this.obterDadosArquivo()// Pegador dados obtidos
+        const id = heori.id <= 2 ? heroi.id : Date.now() //Se o id for <= 2 use o heroi.id se não use a hora
+
+        //Concatenar objetos
+        const heroidComId = {
+            id,//Esse id é gerado na função
+            ...heroi
+        }
+
+        //Concatenar o array com o objeto
+        const dadosFinal = {
+            ...dados,
+            heroidComId
+        }
+        const resultado = await this.escreverArquivo(dadosFinal)
+        return resultado;
     }
 
     async listar(id){

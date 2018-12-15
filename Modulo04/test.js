@@ -1,5 +1,5 @@
 const{
-    deepEqual,
+    deepEqual,//Validar True ou False
     ok
 } = require('assert')
 
@@ -22,12 +22,14 @@ describe('Suite de manipulação de Herois', () => {
 
     })
 
-    /*
+   
     it('deve cadastrar um heroi, usando arquivos', async () => {
         const expected = DEFAULT_ITEM_CADASTRAR
-        //
-        ok(null, expected)
+        const resultado = await database.cadastrar(DEFAULT_ITEM_CADASTRAR)
+        const [actual] = await database.listar(DEFAULT_ITEM_CADASTRAR.id)
 
-    })*/
+        deepEqual(actual, expected)//Quando eu cadastrar um item ele tem que ser igual ao esperado
+
+    })
    
 })
