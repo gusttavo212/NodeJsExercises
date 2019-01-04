@@ -12,7 +12,9 @@ const DEFAULT_ITEM_CADASTRAR = {
 }
 
 describe('Suite de manipulação de Herois', () => {
-
+    before(async () =>{
+        await database.cadastrar(DEFAULT_ITEM_CADASTRAR)
+    }) 
     it('deve pesquisar um heroi, usando arquivos', async () => {
         const expected = DEFAULT_ITEM_CADASTRAR
         const [resultado] = await database.listar(expected.id)
@@ -30,6 +32,9 @@ describe('Suite de manipulação de Herois', () => {
 
         deepEqual(actual, expected)//Quando eu cadastrar um item ele tem que ser igual ao esperado
 
+    })
+    it('Deve remover um heroi por id', async()=>{
+        
     })
    
 })
