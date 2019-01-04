@@ -27,7 +27,11 @@ class Database{
     }
 
     //vai receber informações e escrever no arquivo
+<<<<<<< HEAD
     async escreverArquivo(dados){
+=======
+    async escreverArquivo(){
+>>>>>>> 4f83831a42ef9156de7f272192057401695e72a3
 
         await writeFileAsync(this.NOME_ARQUIVO, JSON.stringify(dados))
         return true;
@@ -36,12 +40,21 @@ class Database{
 
     async cadastrar(heroi){
         const dados = await this.obterDadosArquivo()// Pegador dados obtidos
+<<<<<<< HEAD
         const id = heroi.id <= 2 ? heroi.id : Date.now() //Se o id for <= 2 use o heroi.id se não use a hora
 
         //Concatenar objetos
         const heroidComId = {           
             ...heroi,
             id,//Esse id é gerado na função
+=======
+        const id = heori.id <= 2 ? heroi.id : Date.now() //Se o id for <= 2 use o heroi.id se não use a hora
+
+        //Concatenar objetos
+        const heroidComId = {
+            id,//Esse id é gerado na função
+            ...heroi
+>>>>>>> 4f83831a42ef9156de7f272192057401695e72a3
         }
 
         //Concatenar o array com o objeto

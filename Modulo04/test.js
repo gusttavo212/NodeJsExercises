@@ -33,8 +33,11 @@ describe('Suite de manipulação de Herois', () => {
         deepEqual(actual, expected)//Quando eu cadastrar um item ele tem que ser igual ao esperado
 
     })
+<<<<<<< HEAD
     it('Deve remover um heroi por id', async()=>{
         
     })
+=======
+>>>>>>> 4f83831a42ef9156de7f272192057401695e72a3
    
 })
